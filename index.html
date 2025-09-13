@@ -69,58 +69,75 @@
         </div>
       </section>
 
-        <main class="container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+      <main
+        class="container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-6"
+      >
+        <!-- Categories -->
+        <aside class="md:col-span-3 bg-white p-4 rounded-lg shadow">
+          <h2 class="text-xl font-bold mb-3">Categories</h2>
+          <div
+            id="category-container"
+            class="flex flex-wrap gap-2 md:block md:space-y-2"
+          >
+            <!-- Categories from API -->
+          </div>
+        </aside>
 
-    <!-- Categories -->
-    <aside class="md:col-span-3 bg-white p-4 rounded-lg shadow">
-      <h2 class="text-xl font-bold mb-3">Categories</h2>
-      <div id="category-container" class="flex flex-wrap gap-2 md:block md:space-y-2">
-        <!-- Categories from API -->
+        <!-- Plant Cards -->
+        <section class="md:col-span-6">
+          <!-- Spinner -->
+          <div
+            id="spinner"
+            class="hidden flex justify-center items-center h-40"
+          >
+            <div
+              class="w-12 h-12 border-4 border-green-700 border-dashed rounded-full animate-spin"
+            ></div>
+          </div>
+
+          <div
+            id="card-container"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <!-- Plant cards from API -->
+          </div>
+        </section>
+
+        <!-- Cart -->
+        <aside class="md:col-span-3 bg-white rounded-lg shadow p-4">
+          <h2 class="text-xl font-bold mb-3">🛒 Cart</h2>
+          <div id="add-to-card-container" class="space-y-2">
+            <!-- Cart items here -->
+          </div>
+          <div class="mt-4 font-bold flex justify-between">
+            <span>Total Bill:</span>
+            <span
+              ><i class="fa-solid fa-bangladeshi-taka-sign"></i>
+              <span id="total-Bill">0</span></span
+            >
+          </div>
+        </aside>
+      </main>
+
+      <!-- Modal -->
+      <div
+        id="my_modal"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center px-4"
+      >
+        <div
+          class="bg-white rounded-lg shadow-lg w-full sm:w-4/5 md:w-2/3 lg:w-1/2 p-6 relative"
+        >
+          <button
+            onclick="document.getElementById('my_modal').classList.add('hidden')"
+            class="absolute top-3 right-3 text-gray-500 hover:text-red-600"
+          >
+            ✖
+          </button>
+          <div id="modal-container">
+            <!-- Plant details will be loaded here -->
+          </div>
+        </div>
       </div>
-    </aside>
-
-    <!-- Plant Cards -->
-    <section class="md:col-span-6">
-      <!-- Spinner -->
-      <div id="spinner" class="hidden flex justify-center items-center h-40">
-        <div class="w-12 h-12 border-4 border-green-700 border-dashed rounded-full animate-spin"></div>
-      </div>
-
-      <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Plant cards from API -->
-      </div>
-    </section>
-
-    <!-- Cart -->
-    <aside class="md:col-span-3 bg-white rounded-lg shadow p-4">
-      <h2 class="text-xl font-bold mb-3">🛒 Cart</h2>
-      <div id="add-to-card-container" class="space-y-2">
-        <!-- Cart items here -->
-      </div>
-      <div class="mt-4 font-bold flex justify-between">
-        <span>Total Bill:</span>
-        <span><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span id="total-Bill">0</span></span>
-      </div>
-    </aside>
-
-  </main>
-
-  <!-- Modal -->
-  <div id="my_modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center px-4">
-    <div class="bg-white rounded-lg shadow-lg w-full sm:w-4/5 md:w-2/3 lg:w-1/2 p-6 relative">
-      <button onclick="document.getElementById('my_modal').classList.add('hidden')" 
-              class="absolute top-3 right-3 text-gray-500 hover:text-red-600">
-        ✖
-      </button>
-      <div id="modal-container">
-        <!-- Plant details will be loaded here -->
-      </div>
-    </div>
-  </div>
-
-
-
-
 
       <!-- ============ About Campaign =========== -->
       <section class="py-12">
@@ -161,17 +178,23 @@
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="bg-white rounded-lg p-6 text-center shadow-md">
+            <div
+              class="bg-white rounded-lg p-6 text-center shadow-md hover:bg-green-200"
+            >
               <div class="text-2xl font-bold">500K+</div>
               <div class="text-sm text-gray-500 mt-1">Trees Planted</div>
             </div>
 
-            <div class="bg-white rounded-lg p-6 text-center shadow-md">
+            <div
+              class="bg-white rounded-lg p-6 text-center shadow-md hover:bg-green-200"
+            >
               <div class="text-2xl font-bold">120+</div>
               <div class="text-sm text-gray-500 mt-1">Communities Involved</div>
             </div>
 
-            <div class="bg-white rounded-lg p-6 text-center shadow-md">
+            <div
+              class="bg-white rounded-lg p-6 text-center shadow-md hover:bg-green-200"
+            >
               <div class="text-2xl font-bold">30+</div>
               <div class="text-sm text-gray-500 mt-1">Countries Reached</div>
             </div>
@@ -195,10 +218,15 @@
               class="px-3 py-2 rounded-md text-gray-800"
               placeholder="Your Email Address"
             />
-            <input
-              class="px-3 py-2 rounded-md text-gray-800"
-              placeholder="Number of Trees"
-            />
+
+            <select class="px-3 py-2 rounded-md text-gray-800">
+              <option value="">Number of Trees</option>
+              <option value="1">1 Trees</option>
+              <option value="5">5 Trees</option>
+              <option value="10">10 Trees</option>
+              <option value="20">20 Trees</option>
+              <option value="50">50 Trees</option>
+              </select>
 
             <button
               class="hidden md:inline-block bg-yellow-400 text-green-600 px-4 py-2 rounded-full font-medium hover:bg-yellow-300"
@@ -214,7 +242,6 @@
         <p>© 2025 Green Earth. All Rights Reserved.</p>
       </div>
     </div>
-
 
     <script src="./final.js"></script>
   </body>
