@@ -166,7 +166,3 @@ Clicking a tree name on a card opens a modal with full tree details.
 - **Live Link :** YOUR_DEPLOYED_URL_HERE  
 - **GitHub Private Repository:** YOUR_REPO_URL_HERE  
 
----
-
-
-<!-- My section -->
